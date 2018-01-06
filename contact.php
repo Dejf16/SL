@@ -1,4 +1,21 @@
+<?php
+$feedback = '';
+if(isset($_POST['submit'])){
+    $company_mail = "xdonov00@stud.fit.vutbr.cz";
+    $name_tmp = $_POST['name'];
+    $email_tmp = $_POST['email'];
+    $subject_tmp = $_POST['subject'];
+    $message_tmp = $_POST['message'];
+    $message_tmp = <<<EMAIL
+Meno: $name_tmp
+E-mail: $email_tmp
+EMAIL;
+    $headers = "Reply-to:$email_tmp";
+    mail($company_mail,$subject_tmp,$message_tmp,$headers);
+    $feedback = 'Email odoslany';
 
+}
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -63,25 +80,26 @@
                 <div class="col span_2_of_3">
                     <div class="contact-form">
                         <h3>Kontaktujte nás</h3>
-                        <form action="">
+                        <p id="feedback"><?php echo $feedback?> </p>
+                        <form action="?" method="post">
                             <div>
                                 <span><label>NAME</label></span>
-                                <span><input type="text" name="name" value=""></span>
+                                <span><input type="text" name="name" id="name"></span>
                             </div>
                             <div>
                                 <span><label>E-MAIL</label></span>
-                                <span><input type="text" name="email" value=""></span>
+                                <span><input type="text" name="email" id="email"></span>
                             </div>
                             <div>
                                 <span><label>SUBJECT</label></span>
-                                <span><input type="text" name="subject" value=""></span>
+                                <span><input type="text" name="subject" id="subject"></span>
                             </div>
                             <div>
                                 <span><label>MESSAGE</label></span>
-                                <span><textarea name="message"> </textarea></span>
+                                <span><textarea name="message" id="message"> </textarea></span>
                             </div>
                             <div>
-                                <span><input type="submit" name="submit" value="Submit"></span>
+                                <span><input class="button" type="submit" name="submit" value="Submit"></span>
                             </div>
                         </form>
                     </div>
@@ -90,18 +108,7 @@
         </div>
     </div>
 </div>
-<?php
-if(isset($_POST['submit'])){
-    echo " [o4lfaogfsdfdhdfhhdghdhshaehehehahdfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh";
-    $company_mail = "xdonov00@stud.fit.vutbr.cz";
-    $name_tmp = $_POST['name'];
-    $email_tmp = $_POST['email'];
-    $subject_tmp = $_POST['subject'];
-    $message_tmp = $_POST['message'];
-    $headers = "Reply-to:$email_tmp";
-    mail($company_mail,$subject_tmp,$message_tmp,$headers);
-}
-?>
+
 <div class="footer-bg">
     <div class="wrap">
         <div class="footer">
