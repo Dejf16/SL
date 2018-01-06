@@ -1,3 +1,25 @@
+<script type="text/javascript">
+    // Specify the normal table row background color
+    //   and the background color for when the mouse
+    //   hovers over the table row.
+
+    var TableBackgroundNormalColor = "#5F5D51";
+    var TableBackgroundMouseoverColor = "#9999ff";
+
+    // These two functions need no customization.
+    function ChangeBackgroundColor(row) { row.style.backgroundColor = TableBackgroundMouseoverColor; }
+    function RestoreBackgroundColor(row) { row.style.backgroundColor = TableBackgroundNormalColor; }
+</script>
+<script language="javascript">
+    function changeImage(x) {
+        img = document.getElementById("im_1");
+        img.src = "images/im_2.png";
+        img.title = x;
+        document.getElementById("img_hdr").innerText = "Byt ";
+        window.scrollTo(0, 0);
+
+    }
+</script>
 
 <!DOCTYPE HTML>
 <html>
@@ -28,17 +50,29 @@
         });
     </script>
     <style>
-        table, th, td {
-            border: 1px solid black;
+        #t01 {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
             border-collapse: collapse;
-        }
-        th, td {
-            padding: 5px;
-            text-align: left;
-        }
-        table#t01 {
             width: 100%;
-            background-color: #f1f1c1;
+        }
+
+        #t01 td, #t01 th {
+            border: 1px solid #ddd;
+            padding: 14px;
+            text-align: center;
+
+        }
+
+
+        #t01 tr:hover {background-color: #ddd;}
+
+        #t01 th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+
         }
     </style>
 </head>
@@ -72,35 +106,164 @@
     </div>
 </div>
 
+
 <div class="content-bg">
     <div class="wrap">
         <div class="content">
             <div class="section group">
+                            <div class="clone" style="width: 100%; display: block;">
+                                <h3 align="center" id="img_hdr"></h3>
+                                <img src="images/im_1.png" alt="" id="im_1"/>
+                            </div>
+                <br>
+                <br>
+                <br>
+                <table style="width:100%" id="t01">
+                    <tr>
+                        <th>Číslo bytu</th>
+                        <th>Podlažie</th>
+                        <th>Počet izieb</th>
+                        <th>Rozloha bytu (m<sup>2</sup>)</th>
+                        <th>Stav</th>
+                    </tr>
+                    <tr class='clickable-row' onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('Ahooj')">
+                        <td>A/1/1</td>
+                        <td>1.NP</td>
+                        <td>3</td>
+                        <td>64,60</td>
+                        <td>Dostupný</td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/1/4</td>
+                        <td>1.NP</td>
+                        <td>2</td>
+                        <td>52,14</td>
+                        <td><ul>
+                            <li style="color: #ee8c14"><span>Rezervovaný</span></li>
+                        </ul></td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/1/7</td>
+                        <td>1.NP</td>
+                        <td>3</td>
+                        <td>64,60</td>
+                        <td>Dostupný</td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/1/10 ?todo</td>
+                        <td>1.NP</td>
+                        <td>2</td>
+                        <td>52,14</td>
+                        <td>Dostupný</td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>B/1/12</td>
+                        <td>1.NP</td>
+                        <td>1 ?todo</td>
+                        <td>76,66</td>
+                        <td>Dostupný</td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/2/2</td>
+                        <td>2.NP</td>
+                        <td>3</td>
+                        <td>70,35</td>
+                        <td>Dostupný</td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/2/5</td>
+                        <td>2.NP</td>
+                        <td>2</td>
+                        <td>56,64</td>
+                        <td><ul>
+                            <li style="color: #ee8c14"><span>Rezervovaný</span></li>
+                        </ul></td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/2/2 ?todo</td>
+                        <td>2.NP</td>
+                        <td>3</td>
+                        <td>70,35</td>
+                        <td>Dostupný</td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/2/11</td>
+                        <td>2.NP</td>
+                        <td>2</td>
+                        <td>58,12</td>
+                        <td>Dostupný</td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>B/2/14</td>
+                        <td>2.NP</td>
+                        <td>3</td>
+                        <td>85,27</td>
+                        <td>Dostupný</td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>B/2/12 ?todo</td>
+                        <td>2.NP</td>
+                        <td>1</td>
+                        <td>25,30</td>
+                        <td>Dostupný</td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>B/2/13</td>
+                        <td>2.NP</td>
+                        <td>3</td>
+                        <td>79,19</td>
+                        <td>Dostupný</td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/3/3</td>
+                        <td>Podkrovie</td>
+                        <td>3</td>
+                        <td>70,35</td>
+                        <td><ul>
+                            <li style="color: #ee8c14"><span>Rezervovaný</span></li>
+                        </ul></td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/3/6</td>
+                        <td>Podkrovie</td>
+                        <td>2</td>
+                        <td>56,64</td>
+                        <td><ul>
+                            <li style="color: #ee8c14"><span>Rezervovaný</span></li>
+                        </ul></td>
+                    </tr>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/3/9</td>
+                        <td>Podkrovie</td>
+                        <td>3</td>
+                        <td>70,35</td>
+                        <td>Dostupný</td>
+                    </tr>
 
-                <table style="width:100%">
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Age</th>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>A/3/12</td>
+                        <td>Podkrovie</td>
+                        <td>2</td>
+                        <td>58,12</td>
+                        <td>Dostupný</td>
                     </tr>
-                    <tr>
-                        <td>Jill</td>
-                        <td>Smith</td>
-                        <td>50</td>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>B/3/16</td>
+                        <td>Podkrovie</td>
+                        <td>3</td>
+                        <td>85,39</td>
+                        <td>Dostupný</td>
                     </tr>
-                    <tr>
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                        <td>B/3/15</td>
+                        <td>Podkrovie</td>
+                        <td>2 ?todo</td>
+                        <td>74,54</td>
+                        <td>Dostupný</td>
                     </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>80</td>
-                    </tr>
+
                 </table>
                 <br>
-
             </div>
         </div>
     </div>
