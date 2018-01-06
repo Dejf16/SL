@@ -11,11 +11,19 @@
     function RestoreBackgroundColor(row) { row.style.backgroundColor = TableBackgroundNormalColor; }
 </script>
 <script language="javascript">
-    function changeImage(x) {
+    function changeImage(imgSrc, row) {
         img = document.getElementById("im_1");
-        img.src = "images/im_2.png";
-        img.title = x;
-        document.getElementById("img_hdr").innerText = "Byt ";
+        img.src = imgSrc; //  = x;
+        img.title = imgSrc;
+        img.style.height = '550px';
+        img.style.width = '400px';
+        document.getElementById("byt_nazov").innerText = "Byt " + row.cells[0].innerText;
+
+        document.getElementById("byt_nazov").innerText.fontsize(22);
+        document.getElementById("poschodie").innerText =  row.cells[1].innerText;
+        document.getElementById("poc_izieb").innerText = row.cells[2].innerText;
+        document.getElementById("rozloha").innerText = row.cells[3].innerText;
+
         window.scrollTo(0, 0);
 
     }
@@ -74,6 +82,18 @@
             font-weight: bold;
 
         }
+
+        .lineContainer {
+            overflow: hidden; /* clear the float */
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            overflow: hidden;
+        }
+
+
     </style>
 </head>
 <body>
@@ -107,14 +127,34 @@
 </div>
 
 
+
+
+
 <div class="content-bg">
     <div class="wrap">
         <div class="content">
             <div class="section group">
-                            <div class="clone" style="width: 100%; display: block;">
-                                <h3 align="center" id="img_hdr"></h3>
-                                <img src="images/im_1.png" alt="" id="im_1"/>
-                            </div>
+                <div class="lineContainer">
+                    <div class="left">
+                        <img src="images/im_1.png" alt="" id="im_1"/>
+
+                    </div>
+                    <div class="right">
+                        <h2 id="byt_nazov" style="text-align: center; font-family: Arial; color: #4CAF50"></h2>
+                        <div id="poschodie"></div>
+                        <div id="poc_izieb"></div>
+                        <div id="rozloha"></div>
+                    </div>
+                </div><!--
+                <div style="display:inline-block;vertical-align:top;">
+                    <img src="images/im_1.png" alt="" id="im_1"/>
+                </div>
+                <div id="in_block" style="display:inline-block;">
+                    <h2 id="byt_nazov" style="text-align: center; color: #4CAF50"></h2>
+                    <div id="poschodie"></div>
+                    <div id="poc_izieb"></div>
+                    <div id="rozloha"></div>
+                </div>-->
                 <br>
                 <br>
                 <br>
@@ -126,14 +166,14 @@
                         <th>Rozloha bytu (m<sup>2</sup>)</th>
                         <th>Stav</th>
                     </tr>
-                    <tr class='clickable-row' onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('Ahooj')">
+                    <tr class='clickable-row' onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a11.png', this, this)">
                         <td>A/1/1</td>
                         <td>1.NP</td>
                         <td>3</td>
                         <td>64,60</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a14.jpg', this)">
                         <td>A/1/4</td>
                         <td>1.NP</td>
                         <td>2</td>
@@ -142,35 +182,35 @@
                             <li style="color: #ee8c14"><span>Rezervovaný</span></li>
                         </ul></td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a17.png', this, this)">
                         <td>A/1/7</td>
                         <td>1.NP</td>
                         <td>3</td>
                         <td>64,60</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a110.png', this, this)">
                         <td>A/1/10 ?todo</td>
                         <td>1.NP</td>
                         <td>2</td>
                         <td>52,14</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/b112.png', this)">
                         <td>B/1/12</td>
                         <td>1.NP</td>
                         <td>1 ?todo</td>
                         <td>76,66</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a22.png', this)">
                         <td>A/2/2</td>
                         <td>2.NP</td>
                         <td>3</td>
                         <td>70,35</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a25.png', this)">
                         <td>A/2/5</td>
                         <td>2.NP</td>
                         <td>2</td>
@@ -179,42 +219,42 @@
                             <li style="color: #ee8c14"><span>Rezervovaný</span></li>
                         </ul></td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
-                        <td>A/2/2 ?todo</td>
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a222.png', this)">
+                        <td>A/2/22 ?todo</td>
                         <td>2.NP</td>
                         <td>3</td>
                         <td>70,35</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a211.png', this)">
                         <td>A/2/11</td>
                         <td>2.NP</td>
                         <td>2</td>
                         <td>58,12</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/b214.png', this)">
                         <td>B/2/14</td>
                         <td>2.NP</td>
                         <td>3</td>
                         <td>85,27</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/b212.png', this)">
                         <td>B/2/12 ?todo</td>
                         <td>2.NP</td>
                         <td>1</td>
                         <td>25,30</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/b213.png', this)">
                         <td>B/2/13</td>
                         <td>2.NP</td>
                         <td>3</td>
                         <td>79,19</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a33.png', this)">
                         <td>A/3/3</td>
                         <td>Podkrovie</td>
                         <td>3</td>
@@ -223,7 +263,7 @@
                             <li style="color: #ee8c14"><span>Rezervovaný</span></li>
                         </ul></td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a36.png', this, this)">
                         <td>A/3/6</td>
                         <td>Podkrovie</td>
                         <td>2</td>
@@ -232,7 +272,7 @@
                             <li style="color: #ee8c14"><span>Rezervovaný</span></li>
                         </ul></td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a39.png', this, this)">
                         <td>A/3/9</td>
                         <td>Podkrovie</td>
                         <td>3</td>
@@ -240,21 +280,21 @@
                         <td>Dostupný</td>
                     </tr>
 
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/a312.png', this, this)">
                         <td>A/3/12</td>
                         <td>Podkrovie</td>
                         <td>2</td>
                         <td>58,12</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/b316.png', this, this)">
                         <td>B/3/16</td>
                         <td>Podkrovie</td>
                         <td>3</td>
                         <td>85,39</td>
                         <td>Dostupný</td>
                     </tr>
-                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage()">
+                    <tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)" onclick="changeImage('images/b315.png', this, this)">
                         <td>B/3/15</td>
                         <td>Podkrovie</td>
                         <td>2 ?todo</td>
