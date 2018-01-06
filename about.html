@@ -14,6 +14,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href='//fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<script>
+    $(document).ready(function(){
+        $('li').click(function(){
+            var imgpath = $(this).attr('dir');
+            $('#image').html('<img src='+imgpath+'>');
+        });
+        $('.btn').click(function(){
+            $('#thumbs').fadeIn(500);
+            $('#image').animate({marginTop:'10px'},200);
+            $(this).hide();
+            $('#hide').fadeIn('slow');
+        });
+        $('#hide').click(function(){
+            $('#thumbs').fadeOut(500,function (){
+                $('#image').animate({marginTop:'50px'},200);
+            });
+            $(this).hide();
+            $('#show').fadeIn('slow');
+        });
+    });
+</script>
+
 <div class="header-bg">
 <div class="wrap">
 <div class="header">

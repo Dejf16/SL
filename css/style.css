@@ -27,6 +27,31 @@ body{
 	font-size:0.9em;
 	color:#fff;
 }
+#thumb{width:400px;margin:0 auto; display:none;}
+.sanl
+{
+	margin-top:50px;
+	float:left;
+	width:210px;
+	margin-left:30px;
+	margin-right:30px;
+}
+.sanr
+{
+	margin-top:50px;
+	float:left;
+	width:210px;
+	margin-left:60px;
+	margin-right:30px;
+}
+.man
+{
+	float:left;
+	width:350px;
+	margin-left:30px;
+	margin-right:30px;
+}
+
 
 .wrap{
 	width:80%;
