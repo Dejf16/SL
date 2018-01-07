@@ -13,16 +13,17 @@
 <script language="javascript">
     function changeImage(imgSrc, row) {
         img = document.getElementById("im_1");
-        img.src = imgSrc; //  = x;
+        img.src = imgSrc;
         img.title = imgSrc;
         img.style.height = '550px';
         img.style.width = '400px';
         document.getElementById("byt_nazov").innerText = "Byt " + row.cells[0].innerText;
-
-        document.getElementById("byt_nazov").innerText.fontsize(22);
-        document.getElementById("poschodie").innerText =  row.cells[1].innerText;
-        document.getElementById("poc_izieb").innerText = row.cells[2].innerText;
-        document.getElementById("rozloha").innerText = row.cells[3].innerText;
+        document.getElementById("poschodie").innerText = "Podlažie: " +  row.cells[1].innerText;
+        document.getElementById("poc_izieb").innerText = "Počet izieb: " + row.cells[2].innerText;
+        document.getElementById("rozloha").innerText =   "Rozloha: " + row.cells[3].innerText + " metrov štvorcových";
+      //  document.getElementById("info_table").rows[1].columns[1].innerHTML = '789';
+       // document.getElementById("info_table").rows[1].columns[1].innerHTML= row.cells[1].innerText;
+       // document.getElementById("info_table").rows[2].columns[1].innerHTML = row.cells[1].innerText;
 
         window.scrollTo(0, 0);
 
@@ -84,14 +85,44 @@
         }
 
         .lineContainer {
-            overflow: hidden; /* clear the float */
+            overflow: hidden;
+            margin: 10px;
+
         }
         .left {
             float: left;
+            margin: 30px;
+
         }
         .right {
             overflow: hidden;
+            margin: 30px;
         }
+
+        #byt_nazov {
+            font-family: times, Times New Roman, times-roman, georgia, serif;
+            margin: 0;
+            padding: 0px 0px 6px 6px;
+            font-size: 51px;
+            line-height: 44px;
+            letter-spacing: -2px;
+            font-weight: bold;
+        }
+
+        #poschodie, #poc_izieb, #rozloha{
+            font-family: times, Times New Roman, times-roman, georgia, serif;
+            margin: 2px;
+            padding: 0px 0px 6px 6px;
+            font-size: 41px;
+            line-height: 44px;
+
+            border-bottom: 1px solid #1ab828;
+
+        }
+        #im_1{
+
+        }
+
 
 
     </style>
@@ -137,13 +168,27 @@
                 <div class="lineContainer">
                     <div class="left">
                         <img src="images/im_1.png" alt="" id="im_1"/>
-
                     </div>
                     <div class="right">
-                        <h2 id="byt_nazov" style="text-align: center; font-family: Arial; color: #4CAF50"></h2>
-                        <div id="poschodie"></div>
-                        <div id="poc_izieb"></div>
-                        <div id="rozloha"></div>
+                       <!-- <table id="info_table" style="width:100%">
+                            <tr>
+                                <th>Podlazie</th>
+                                <td>Ahooooj</td>
+                            </tr>
+                            <tr>
+                                <th>Pocet izieb</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Rozloha</th>
+                                <td></td>
+                            </tr>
+                        </table> -->
+                        <div id="byt_nazov" style="text-align: center;font-size: xx-large; color: #4CAF50"></div>
+                        <br><br>
+                        <div id="poschodie" style="text-align: left;font-size: x-large;"></div>
+                        <div id="poc_izieb" style="text-align: left;font-size: x-large;"></div>
+                        <div id="rozloha" style="text-align: left;font-size: x-large;"></div>
                     </div>
                 </div><!--
                 <div style="display:inline-block;vertical-align:top;">
