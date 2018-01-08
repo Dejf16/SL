@@ -24,7 +24,11 @@
       //  document.getElementById("info_table").rows[1].columns[1].innerHTML = '789';
        // document.getElementById("info_table").rows[1].columns[1].innerHTML= row.cells[1].innerText;
        // document.getElementById("info_table").rows[2].columns[1].innerHTML = row.cells[1].innerText;
-
+        document.getElementById("btn1").innerText = "Máte Záujem? Konkatujte nás!";
+        document.getElementById("btn2").innerText = "Naspäť na prehľad bytov.";
+        document.getElementById("btn1").style.fontWeight = 'bold';
+        document.getElementById("line_r").style.display = 'inline-block';
+        document.getElementById("line_l").style.display = 'inline-block';
         window.scrollTo(0, 0);
 
     }
@@ -87,12 +91,12 @@
         .lineContainer {
             overflow: hidden;
             margin: 10px;
+            display: inline-block;
 
         }
         .left {
             float: left;
             margin: 30px;
-
         }
         .right {
             overflow: hidden;
@@ -117,13 +121,7 @@
             line-height: 44px;
 
             border-bottom: 1px solid #1ab828;
-
         }
-        #im_1{
-
-        }
-
-
 
     </style>
 </head>
@@ -137,9 +135,8 @@
             <div class="drp-dwn">
                 <select onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="index.html">Úvod</option>
-                    <option value="byty.html">Byty</option>
+                    <option selected value="byty.html">Byty</option>
                     <option value="about.html">O nas</option>
-                    <option value="service.html">STKcka</option>
                     <option value="contact.php">Kontakt</option>
                 </select>
             </div>
@@ -148,7 +145,6 @@
                     <li><a href="index.html">Úvod</a></li>
                     <li class="active"><a href="byty.html">Byty</a></li>
                     <li><a href="about.html">O nás</a></li>
-                    <li><a href="//http:www.donivostk.sk">STKcka</a></li>
                     <li><a href="contact.php">Kontakt</a></li>
                 </ul>
             </div>
@@ -166,44 +162,25 @@
         <div class="content">
             <div class="section group">
                 <div class="lineContainer">
-                    <div class="left">
-                        <img src="images/im_1.png" alt="" id="im_1"/>
+                    <div id="line_l" class="left">
+                        <!--img src="images/ZMENA-01-PôDORYSY-1.NP-1.png" alt="" id="im_1"/-->
+                        <img src="images/1np_podorys.png" alt="" id="im_1"/>
                     </div>
-                    <div class="right">
-                       <!-- <table id="info_table" style="width:100%">
-                            <tr>
-                                <th>Podlazie</th>
-                                <td>Ahooooj</td>
-                            </tr>
-                            <tr>
-                                <th>Pocet izieb</th>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th>Rozloha</th>
-                                <td></td>
-                            </tr>
-                        </table> -->
+                    <div id="line_r" class="right">
+
                         <div id="byt_nazov" style="text-align: center;font-size: xx-large; color: #4CAF50"></div>
                         <br><br>
                         <div id="poschodie" style="text-align: left;font-size: x-large;"></div>
                         <div id="poc_izieb" style="text-align: left;font-size: x-large;"></div>
                         <div id="rozloha" style="text-align: left;font-size: x-large;"></div>
+                        <div align="center"><a href="contact.php" class="myButton"  id="btn1"></a></div>
+                        <div align="center"><a href="byty.html" class="myButton" id="btn2"></a></div>
                     </div>
-                </div><!--
-                <div style="display:inline-block;vertical-align:top;">
-                    <img src="images/im_1.png" alt="" id="im_1"/>
                 </div>
-                <div id="in_block" style="display:inline-block;">
-                    <h2 id="byt_nazov" style="text-align: center; color: #4CAF50"></h2>
-                    <div id="poschodie"></div>
-                    <div id="poc_izieb"></div>
-                    <div id="rozloha"></div>
-                </div>-->
                 <br>
                 <br>
                 <br>
-                <table style="width:100%" id="t01">
+                <table style="width:100%; overflow-x:auto;" id="t01">
                     <tr>
                         <th>Číslo bytu</th>
                         <th>Podlažie</th>
