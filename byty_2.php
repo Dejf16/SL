@@ -1,3 +1,8 @@
+<?php
+    $hideTable = false; // is set true when specific apt is chosen, doesnt show the table if true
+?>
+<!DOCTYPE HTML>
+
 <script type="text/javascript">
     // Specify the normal table row background color
     //   and the background color for when the mouse
@@ -12,6 +17,8 @@
 </script>
 <script language="javascript">
     function changeImage(imgSrc, row) {
+        $hideTable = true;
+
         img = document.getElementById("im_1");
         img.src = imgSrc;
         img.title = imgSrc;
@@ -21,9 +28,9 @@
         document.getElementById("poschodie").innerText = "Podlažie: " +  row.cells[1].innerText;
         document.getElementById("poc_izieb").innerText = "Počet izieb: " + row.cells[2].innerText;
         document.getElementById("rozloha").innerText =   "Rozloha: " + row.cells[3].innerText + " metrov štvorcových";
-      //  document.getElementById("info_table").rows[1].columns[1].innerHTML = '789';
-       // document.getElementById("info_table").rows[1].columns[1].innerHTML= row.cells[1].innerText;
-       // document.getElementById("info_table").rows[2].columns[1].innerHTML = row.cells[1].innerText;
+        //  document.getElementById("info_table").rows[1].columns[1].innerHTML = '789';
+        // document.getElementById("info_table").rows[1].columns[1].innerHTML= row.cells[1].innerText;
+        // document.getElementById("info_table").rows[2].columns[1].innerHTML = row.cells[1].innerText;
         document.getElementById("btn1").innerText = "Máte Záujem? Konkatujte nás!";
         document.getElementById("btn2").innerText = "Naspäť na prehľad bytov.";
         document.getElementById("btn1").style.fontWeight = 'bold';
@@ -33,8 +40,6 @@
 
     }
 </script>
-
-<!DOCTYPE HTML>
 <html>
 <head>
     <title>Slovenska Lupca</title>
@@ -163,7 +168,6 @@
             <div class="section group">
                 <div class="lineContainer">
                     <div id="line_l" class="left">
-                        <!--img src="images/ZMENA-01-PôDORYSY-1.NP-1.png" alt="" id="im_1"/-->
                         <img src="images/1np_podorys.png" alt="" id="im_1"/>
                     </div>
                     <div id="line_r" class="right">
@@ -180,7 +184,7 @@
                 <br>
                 <br>
                 <br>
-                <?php if(false) : ?>
+                <?php if(!$hideTable) : ?>
                 <table style="width:100%; overflow-x:auto;" id="t01">
                     <tr>
                         <th>Číslo bytu</th>
@@ -326,6 +330,7 @@
                     </tr>
 
                 </table>
+                <?php endif;?>
                 <br>
             </div>
         </div>

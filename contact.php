@@ -1,4 +1,4 @@
-<?php jebkoooo
+<?php 
 $feedback = '';
 if(isset($_POST['submit'])){
     $company_mail = "xdonov00@stud.fit.vutbr.cz";
