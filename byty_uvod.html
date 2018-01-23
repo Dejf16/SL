@@ -53,26 +53,6 @@
         background: #99e5ac;
     }
 
-    #byt_nazov {
-        font-family: times, Times New Roman, times-roman, georgia, serif;
-        margin: 0;
-        padding: 0px 0px 6px 6px;
-        font-size: 51px;
-        line-height: 44px;
-        letter-spacing: -2px;
-        font-weight: bold;
-    }
-
-    #poschodie, #poc_izieb, #rozloha{
-        font-family: times, Times New Roman, times-roman, georgia, serif;
-        margin: 2px;
-        padding: 0px 0px 6px 6px;
-        font-size: 41px;
-        line-height: 44px;
-
-        border-bottom: 1px solid #1ab828;
-    }
-
 </style>
 
 
@@ -85,8 +65,45 @@
     byty.push({ 0:'A/1/3', 1:'1.NP',2:'3',3:'68.60',4:'Dostupný',5:'images/a13.png', 6:2});
     byty.push({ 0:'A/1/2', 1:'1.NP',2:'3',3:'69.60',4:'Dostupný',5:'images/a12.png', 6:2});
 
+
+    function updateTableBody(table_body, x) {
+        var row, cell, i , j, index;
+        for(i = 0, index = 0; i < byty.length; i++){
+            if(x === 0){
+                row = table_body.insertRow(index++);
+                for(j = 0; j < 5; j++){
+                    cell = row.insertCell(j);
+                    cell.innerHTML = byty[i][j];
+                    (function(e) {
+                        cell.onclick = (function() {
+                            showByt(e);
+                        });
+                    })(i);
+                    if(j === 4 &&  byty[i][j] === "Rezervovaný")
+                        cell.style.color = '#ee8c14';
+                }
+            } else {
+                if (x === byty[i][6]){
+                    row = table_body.insertRow(index++);
+                    for(j = 0; j < 5; j++){
+                        cell = row.insertCell(j);
+                        cell.innerHTML = byty[i][j];
+                        (function(e) {
+                            cell.onclick = (function() {
+                                showByt(e);
+                            });
+                        })(i);
+                        if(j === 4 &&  byty[i][j] === "Rezervovaný")
+                        cell.style.color = '#ee8c14';
+                    }
+                }
+            }
+        }
+    }
+
+
     function createTable(x) {
-        var im, reload;
+        var im;
         var btn = document.createElement("BUTTON");
         var t = document.createTextNode("Naspäť na celkový prehľad");
         btn.appendChild(t);
@@ -124,48 +141,15 @@
                 break;
 
         }
-        //if(x !== 0){
-            var old_table_body = document.getElementById("tbody01");
-            var new_table_body = document.createElement('tbody');
-            updateTableBody(new_table_body,x);
-            old_table_body.parentNode.replaceChild(new_table_body,old_table_body);
-       // }
 
-    }
+        var new_table_body = document.createElement('tbody');
+        new_table_body.id = 'tbody01';
+        updateTableBody(new_table_body, x);
 
-    function updateTableBody(body, x) {
-        var row, cell, i , j;
-        for(i = 0, index = 0; i < byty.length; i++){
-            if(x === 0){
-                row = body.insertRow(index++);
-                for(j = 0; j < 5; j++){
-                    cell = row.insertCell(j);
-                    cell.innerHTML = byty[i][j];
-                    (function(e) {
-                        cell.onclick = (function() {
-                            showByt(e);
-                        });
-                    })(i);
-                    if(j === 4 &&  byty[i][j] === "Rezervovaný")
-                        cell.style.color = '#ee8c14';
-                }
-            } else {
-                if (x === byty[i][6]){
-                    row = body.insertRow(index++);
-                    for(j = 0; j < 5; j++){
-                        cell = row.insertCell(j);
-                        cell.innerHTML = byty[i][j];
-                        (function(e) {
-                            cell.onclick = (function() {
-                                showByt(e);
-                            });
-                        })(i);
-                        if(j === 4 &&  byty[i][j] === "Rezervovaný")
-                            cell.style.color = '#ee8c14';
-                    }
-                }
-            }
-        }
+        var old_table_body = document.getElementById("tbody01");
+        old_table_body.parentNode.replaceChild(new_table_body,old_table_body);
+        new_table_body = null;
+
     }
 
     function showByt(byt_row_id){
@@ -236,9 +220,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 
 <div class="content-bg">

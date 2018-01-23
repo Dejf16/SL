@@ -1,30 +1,4 @@
 <style>
-
-    #t01 {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    #t01 td, #t01 th {
-        border: 1px solid #ddd;
-        padding: 14px;
-        text-align: center;
-
-    }
-
-
-    #t01 tr:hover {background-color: #9999ff;}
-
-    #t01 th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        background-color: #4CAF50;
-        color: white;
-        font-weight: bold;
-
-    }
-
     .lineContainer {
         overflow: hidden;
         margin: 10px;
@@ -62,18 +36,6 @@
 
 </style>
 
-<script type="text/javascript">
-    // Specify the normal table row background color
-    //   and the background color for when the mouse
-    //   hovers over the table row.
-
-    var TableBackgroundNormalColor = "#5F5D51";
-    var TableBackgroundMouseoverColor = "#ff2340";
-
-    // These two functions need no customization.
-    function ChangeBackgroundColor(row) { row.style.backgroundColor = TableBackgroundMouseoverColor; }
-    function RestoreBackgroundColor(row) { row.style.backgroundColor = TableBackgroundNormalColor; }
-</script>
 <script language="javascript">
     function changeImage() {
         img = document.getElementById("im_1");
@@ -85,16 +47,15 @@
         document.getElementById("poschodie").innerText = "Podlažie: " +  localStorage.getItem("byt_podlazie");
         document.getElementById("poc_izieb").innerText = "Počet izieb: " + localStorage.getItem("byt_pocet");
         document.getElementById("rozloha").innerText =   "Rozloha: " + localStorage.getItem("byt_rozloha") + " metrov štvorcových";
-      //  document.getElementById("info_table").rows[1].columns[1].innerHTML = '789';
-       // document.getElementById("info_table").rows[1].columns[1].innerHTML= row.cells[1].innerText;
-       // document.getElementById("info_table").rows[2].columns[1].innerHTML = row.cells[1].innerText;
+
         document.getElementById("btn1").innerText = "Máte Záujem? Konkatujte nás!";
         document.getElementById("btn2").innerText = "Naspäť na prehľad bytov.";
         document.getElementById("btn1").style.fontWeight = 'bold';
+
         document.getElementById("line_r").style.display = 'inline-block';
         document.getElementById("line_l").style.display = 'inline-block';
-        window.scrollTo(0, 0);
 
+        window.scrollTo(0, 0);
     }
 </script>
 
