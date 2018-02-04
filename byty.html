@@ -38,7 +38,7 @@
 
 <script language="javascript">
     function changeImage() {
-        img = document.getElementById("im_1");
+        var img = document.getElementById("im_1");
         img.src = localStorage.getItem("byt_src");
         img.title = localStorage.getItem("byt_nazov");
         img.style.height = '550px';
@@ -55,6 +55,8 @@
         document.getElementById("line_r").style.display = 'inline-block';
         document.getElementById("line_l").style.display = 'inline-block';
 
+        var img_umiestnenie = document.getElementById("byt_umiestnenie_im");
+        img_umiestnenie.src = localStorage.getItem("byt_umiestnenie_src");
         window.scrollTo(0, 0);
     }
 </script>
@@ -145,7 +147,7 @@
                 <br>
                 <div>
                     <h3>Umiestnenie</h3>
-                    <img src="images/1np_podorys.png" alt="" id="im_2"/>
+                    <img id="byt_umiestnenie_im" alt=""/>
                 </div>
             </div>
         </div>
