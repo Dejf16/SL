@@ -1,4 +1,4 @@
-<?php jebkoooo
+<?php 
 $feedback = '';
 if(isset($_POST['submit'])){
     $company_mail = "xdonov00@stud.fit.vutbr.cz";
@@ -35,18 +35,16 @@ EMAIL;
             <div class="drp-dwn">
                 <select onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="index.html">Úvod</option>
-                    <option value="byty.html">Byty</option>
+                    <option value="byty_uvod.html">Byty</option>
                     <option value="about.html">O nas</option>
-                    <option value="service.html">STKcka</option>
-                    <option value="contact.php">Kontakt</option>
+                    <option selected value="contact.php">Kontakt</option>
                 </select>
             </div>
             <div class="menu">
                 <ul class="nav">
                     <li ><a href="index.html">Úvod</a></li>
-                    <li><a href="byty.html">Byty</a></li>
+                    <li><a href="byty_uvod.html">Byty</a></li>
                     <li><a href="about.html">O nás</a></li>
-                    <li><a href="//http:www.donivostk.sk">STKcka</a></li>
                     <li class="active"><a href="contact.php">Kontakt</a></li>
                 </ul>
             </div>
@@ -83,7 +81,7 @@ EMAIL;
                         <p id="feedback"><?php echo $feedback?> </p>
                         <form action="?" method="post">
                             <div>
-                                <span><label>NAME</label></span>
+                                <span><label>MENO</label></span>
                                 <span><input type="text" name="name" id="name"></span>
                             </div>
                             <div>
@@ -91,11 +89,11 @@ EMAIL;
                                 <span><input type="text" name="email" id="email"></span>
                             </div>
                             <div>
-                                <span><label>SUBJECT</label></span>
+                                <span><label>PREDMET</label></span>
                                 <span><input type="text" name="subject" id="subject"></span>
                             </div>
                             <div>
-                                <span><label>MESSAGE</label></span>
+                                <span><label>SPRÁVA</label></span>
                                 <span><textarea name="message" id="message"> </textarea></span>
                             </div>
                             <div>

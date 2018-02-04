@@ -1,0 +1,311 @@
+<style>
+    .caption{
+        font-size:24px; 
+        font-family: Times;
+        color: #1ab828;
+        font-weight: bold;
+    }
+
+    #t01 {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #t01 td, #t01 th {
+        border: 1px solid #ddd;
+        padding: 14px;
+        text-align: center;
+    }
+
+
+    #t01 tr:hover {background-color: #9999ff;}
+
+    #t01 th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+
+    }
+
+    .lineContainer{
+        height: auto;
+        width: auto;
+        float: left;
+        color: #333333;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+
+    .lineContainerImages{
+        display: inline-block;
+        width: calc(95% / 3);
+        padding: 2px;
+        height: auto;
+        text-decoration:none;
+        text-align:center;
+    }
+
+    a.lineContainerImages:hover {
+        background: #99e5ac;
+    }
+
+</style>
+
+
+<script language="javascript">
+    var byty = []; // todo [7] ma byt src pre obrazok umiestnenia bytu
+    byty.push({ 0:'A/1/1', 1:'1.NP',2:'3',3:'64.60',4:'Dostupný',5:'images/a11.png', 6:1, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/1/4', 1:'1.NP',2:'2',3:'52.14',4:'Rezervovaný',5:'images/a14.png', 6:1, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/1/7', 1:'1.NP',2:'3',3:'64.60',4:'Dostupný',5:'images/a17.png', 6:1, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/1/10', 1:'1.NP',2:'2',3:'52.14',4:'Dostupný',5:'images/a110.png', 6:1, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'B/1/12', 1:'1.NP',2:'1',3:'76.16',4:'Dostupný',5:'images/b112.png', 6:1, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/2/2', 1:'2.NP',2:'3',3:'70.35',4:'Dostupný',5:'images/a22.png', 6:2, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/2/5', 1:'2.NP',2:'2',3:'56.64',4:'Dostupný',5:'images/a25.png', 6:2, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/2/22', 1:'2.NP',2:'3',3:'70.35',4:'Dostupný',5:'images/a222.png', 6:2, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/2/11', 1:'2.NP',2:'2',3:'58.12',4:'Dostupný',5:'images/a211.png', 6:2, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'B/2/14', 1:'2.NP',2:'3',3:'85.27',4:'Dostupný',5:'images/b214.png', 6:2, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'B/2/12', 1:'2.NP',2:'1',3:'25.30',4:'Dostupný',5:'images/b212.png', 6:2, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'B/2/13', 1:'2.NP',2:'3',3:'79.19',4:'Dostupný',5:'images/b213.png', 6:2, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/3/3', 1:'Podkrovie',2:'3',3:'70.35',4:'Rezervovaný',5:'images/a33.png', 6:3, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/3/6', 1:'Podkrovie',2:'2',3:'56.64',4:'Rezervovaný',5:'images/a36.png', 6:3, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/3/9', 1:'Podkrovie',2:'3',3:'70.35',4:'Dostupný',5:'images/a39.png', 6:3, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'A/3/12', 1:'Podkrovie',2:'2',3:'58.12',4:'Dostupný',5:'images/a312.png', 6:3, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'B/3/16', 1:'Podkrovie',2:'3',3:'85.39',4:'Dostupný',5:'images/b316.png', 6:3, 7:"images/1np_podorys.png"});
+    byty.push({ 0:'B/3/15', 1:'Podkrovie',2:'2',3:'74.54',4:'Dostupný',5:'images/b315.png', 6:3, 7:"images/1np_podorys.png"});
+
+
+    function updateTableBody(table_body, x) {
+        var row, cell, i , j, index;
+        for(i = 0, index = 0; i < byty.length; i++){
+            if(x === 0){
+                row = table_body.insertRow(index++);
+                for(j = 0; j < 5; j++){
+                    cell = row.insertCell(j);
+                    cell.innerHTML = byty[i][j];
+                    (function(e) {
+                        cell.onclick = (function() {
+                            showByt(e);
+                        });
+                    })(i);
+                    if(j === 4 &&  byty[i][j] === "Rezervovaný")
+                        cell.style.color = '#ee8c14';
+                }
+            } else {
+                if (x === byty[i][6]){
+                    row = table_body.insertRow(index++);
+                    for(j = 0; j < 5; j++){
+                        cell = row.insertCell(j);
+                        cell.innerHTML = byty[i][j];
+                        (function(e) {
+                            cell.onclick = (function() {
+                                showByt(e);
+                            });
+                        })(i);
+                        if(j === 4 &&  byty[i][j] === "Rezervovaný")
+                        cell.style.color = '#ee8c14';
+                    }
+                }
+            }
+        }
+    }
+
+
+    function createTable(x) {
+        var im;
+        var btn = document.createElement("BUTTON");
+        var t = document.createTextNode("Naspäť na celkový prehľad");
+        btn.appendChild(t);
+        btn.classList.add("MyButton");
+        btn.id = 'btn';
+        btn.onclick = function () { history.go(0) };
+
+        switch(x){
+            case 1:
+                im = document.getElementById('im_2');
+                im.remove();
+                im = document.getElementById('im_3');
+                im.remove();
+                im = document.getElementById('im_1');
+                im.style.width = 'auto';
+                document.getElementById('linecontainer').appendChild(btn);
+                break;
+            case 2:
+                im = document.getElementById('im_1');
+                im.remove();
+                im = document.getElementById('im_3');
+                im.remove();
+                im = document.getElementById('im_2');
+                im.style.width = 'auto';
+                document.getElementById('linecontainer').appendChild(btn);
+                break;
+            case 3:
+                im = document.getElementById('im_1');
+                im.remove();
+                im = document.getElementById('im_2');
+                im.remove();
+                im = document.getElementById('im_3');
+                im.style.width = 'auto';
+                document.getElementById('linecontainer').appendChild(btn);
+                break;
+
+        }
+
+        var new_table_body = document.createElement('tbody');
+        new_table_body.id = 'tbody01';
+        updateTableBody(new_table_body, x);
+
+        var old_table_body = document.getElementById("tbody01");
+        old_table_body.parentNode.replaceChild(new_table_body,old_table_body);
+        new_table_body = null;
+
+    }
+
+    function showByt(byt_row_id){
+        localStorage.setItem("byt_src",byty[byt_row_id][5]);
+        localStorage.setItem("byt_nazov",byty[byt_row_id][0]);
+        localStorage.setItem("byt_podlazie",byty[byt_row_id][1]);
+        localStorage.setItem("byt_pocet",byty[byt_row_id][2]);
+        localStorage.setItem("byt_rozloha",byty[byt_row_id][3]);
+        localStorage.setItem("byt_umiestnenie_src",byty[byt_row_id][7]);
+        location.href = "byty.html";
+    }
+</script>
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Slovenska Lupca</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+   <link href='//fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
+   <!--slider-->
+    <script src="js/modernizr.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+    <!-- FlexSlider -->
+    <script defer src="js/jquery.flexslider.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            SyntaxHighlighter.all();
+        });
+        $(window).load(function(){
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function(slider){
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+
+</head>
+<body onload="createTable(0)">
+<div class="header-bg">
+    <div class="wrap">
+        <div class="header">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo1.png" alt="" title="logo"></a>
+            </div>
+            <div class="drp-dwn">
+                <select onchange="window.location=this.options[this.selectedIndex].value">
+                    <option value="index.html">Úvod</option>
+                    <option selected value="byty.html">Byty</option>
+                    <option value="about.html">O nas</option>
+                    <option value="contact.php">Kontakt</option>
+                </select>
+            </div>
+            <div class="menu">
+                <ul class="nav">
+                    <li><a href="index.html">Úvod</a></li>
+                    <li class="active"><a href="byty.html">Byty</a></li>
+                    <li><a href="about.html">O nás</a></li>
+                    <li><a href="contact.php">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content-bg">
+    <div class="wrap">
+        <div class="content">
+            <div class="section group">
+                <div class="lineContainer" id="linecontainer">
+                    <a class="lineContainerImages" id="im_1" onclick="createTable(1)">
+                        <img src="images/ZMENA-01-PôDORYSY-1.NP-1.png" alt="" />
+                        <h3 class="caption">1. NADZEMNÉ PODLAŽIE</h3>
+                    </a>
+                    <a class="lineContainerImages" id="im_2" onclick="createTable(2)">
+                        <img src="images/ZMENA-01-PôDORYSY-2.NP_2-1.png" alt="" />
+                        <h3 class="caption">2. NADZEMNÉ PODLAŽIE</h3>
+                    </a>
+                    <a class="lineContainerImages" id="im_3" onclick="createTable(3)">
+                        <img src="images/ZMENA-01-PôDORYSY-Podkrovie-1.png" alt="" />
+                        <h3 class="caption">PODKROVIE</h3>
+                    </a>
+                </div>
+                <br>
+                <br>
+                <br>
+                <table style="width:100%; overflow-x:auto;" id="t01">
+                    <thead>
+                        <tr>
+                            <th>Číslo bytu</th>
+                            <th>Podlažie</th>
+                            <th>Počet izieb</th>
+                            <th>Rozloha bytu (m<sup>2</sup>)</th>
+                            <th>Stav</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody01">
+
+                    <tbody>
+                </table>
+                
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-bg">
+    <div class="wrap">
+        <div class="footer">
+            <div class="section group">
+                <div class="col_1_of_4 span_1_of_4">
+                    <h3>Sledujte nas</h3>
+                    <ul class="nav1">
+                        <li><a href="#"><img src="images/facebook.png" title="facebook" alt="" />Facebook</a></li>
+                    </ul>
+                </div>
+
+                <div class="col_1_of_4 span_1_of_4">
+                    <h3>Kontakt</h3>
+                    <ul class="nav2">
+                        <li>Banska Bystrica</li>
+                        <li>Slovensko</li>
+                        <li>Telefon:0901 111 111</li>
+                        <li>Email:<a href="mailto:stk@stk.sk"><span> stk@stk.sk</span></a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_4 span_1_of_4">
+                    <a href="#"><img src="images/logo1.png" alt="" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer1-bg">
+    <div class="wrap">
+    </div>
+</div>
+</body>
+</html>

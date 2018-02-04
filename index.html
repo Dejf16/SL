@@ -2,71 +2,71 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Slovenska Lupca</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href='//fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
-<!--slider-->
-<script src="js/modernizr.js"></script>
- <!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
-<!-- FlexSlider -->
-<script defer src="js/jquery.flexslider.js"></script>
-<script type="text/javascript">
-    $(function(){
-      SyntaxHighlighter.all();
-    });
-    $(window).load(function(){
-      $('.flexslider').flexslider({
-        animation: "slide",
-        start: function(slider){
-          $('body').removeClass('loading');
-        }
-      });
-    });
-</script>
+	<title>Slovenska Lupca</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href='//fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
+	<!--slider-->
+	<script src="js/modernizr.js"></script>
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+	<!-- FlexSlider -->
+	<script defer src="js/jquery.flexslider.js"></script>
+	<script type="text/javascript">
+        $(function(){
+            SyntaxHighlighter.all();
+        });
+        $(window).load(function(){
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function(slider){
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+	</script>
 
 </head>
 <style>
-.lineContainer {
-overflow: hidden; /* clear the float */
-}
-.left {
-float: left;
-}
-.right {
-overflow: hidden;
-}
+	.lineContainer {
+		overflow: hidden; /* clear the float */
+	}
+	.left {
+		float: left;
+	}
+	.right {
+		overflow: hidden;
+	}
 </style>
 <body>
 <div class="header-bg">
-<div class="wrap">
-<div class="header">
-	<div class="logo">
-		<a href="index.html"><img src="images/logo1.png" alt="" title="logo"></a>
-	</div>
-	<div class="drp-dwn">
-	 	<select onchange="window.location=this.options[this.selectedIndex].value">
-            <option value="index.html">Úvod</option>
-			<option value="byty.html">Byty</option>
-			<option value="about.html">O nas</option>
-			<option value="contact.html">Kontakt</option>
-		</select>
-	</div>
-	<div class="menu">
-    	<ul class="nav">
-           <li class="active"><a href="index.html">Úvod</a></li>
-            <li><a href="byty.html">Byty</a></li>
-           <li><a href="about.html">O nás</a></li>
-           <li><a href="contact.html">Kontakt</a></li>
+	<div class="wrap">
+		<div class="header">
+			<div class="logo">
+				<a href="index.html"><img src="images/logo1.png" alt="" title="logo"></a>
+			</div>
+			<div class="drp-dwn">
+				<select onchange="window.location=this.options[this.selectedIndex].value">
+					<option selected value="index.html">Úvod</option>
+					<option value="byty_uvod.html">Byty</option>
+					<option value="about.html">O nas</option>
+					<option value="contact.php">Kontakt</option>
+				</select>
+			</div>
+			<div class="menu">
+				<ul class="nav">
+					<li class="active"><a href="index.html">Úvod</a></li>
+					<li><a href="byty_uvod.html">Byty</a></li>
+					<li><a href="about.html">O nás</a></li>
+					<li><a href="contact.php">Kontakt</a></li>
 
-        </ul>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
 	</div>
-	<div class="clear"></div>
-</div>
-</div>
 </div>
 <div class="content-bg">
 	<div class="wrap">
@@ -74,43 +74,43 @@ overflow: hidden;
 
 			<div class="section group">
 
-				<h3><center>V prípade záujmu o technickú alebo emisnú kontrolu navštívte stránky   <a href="http://www.donivostk.sk/">www.donivostk.sk</a></center></h3>
+				<h3><div style="text-align: center;">V prípade záujmu o technickú alebo emisnú kontrolu navštívte stránky   <a href="http://www.donivostk.sk/">www.donivostk.sk</a></div></h3>
 
 			</div>
 		</div>
 	</div>
 </div>
 <div class="slider-bg">
-<div class="wrap">
-<div class="flexslider">
-   	<div class="flex-viewport" style="overflow: hidden; position: relative;">
-   		<ul class="slides" style="width: 80%; -webkit-transition: 0.6s; transition: 0.6s; -webkit-transform: translate3d(-5032px, 0, 0);">
+	<div class="wrap">
+		<div class="flexslider">
+			<div class="flex-viewport" style="overflow: hidden; position: relative;">
+				<ul class="slides" style="width: 80%; -webkit-transition: 0.6s; transition: 0.6s; -webkit-transform: translate3d(-5032px, 0, 0);">
 
-   			<li class="clone" style="width: 100%; float: left; display: block;">
-        		<img src="images/slider1.jpg" alt=""/>
-    		</li>
-       		<li style="width: 100%; float: left; display: block;" class="">
-    	    	<img src="images/slider2.jpg" alt=""/>
-    		</li>
-    		<li class="" style="width:100%; float: left; display: block;">
-    	    	<img src="images/slider3.jpg" alt=""/>
-    		</li>
+					<li class="clone" style="width: 100%; float: left; display: block;">
+						<img src="images/slider1.jpg" alt=""/>
+					</li>
+					<li style="width: 100%; float: left; display: block;" class="">
+						<img src="images/slider2.jpg" alt=""/>
+					</li>
+					<li class="" style="width:100%; float: left; display: block;">
+						<img src="images/slider3.jpg" alt=""/>
+					</li>
 
-		</ul>
+				</ul>
+			</div>
+		</div>
 	</div>
 </div>
-</div>
-</div>
 <div class="content-bg">
-<div class="wrap">
-<div class="content">
+	<div class="wrap">
+		<div class="content">
 
 			<div class="section group">
 				<div class="lineContainer">
 					<div class="left">
-						<h3><center>Plánovaný začiatok výstavby je v prvom polroku 2018</center></h3>
-						<h3><center>1-3 izbové byty o výmere 30-85 metrov štvorcových</center></h3>
-						<h3><center>Vlastné vnútorné parkovanie v átriu domu</center></h3>
+						<h3><div style="text-align: center;">Plánovaný začiatok výstavby je v prvom polroku 2018</div></h3>
+						<h3><div style="text-align: center;">1-3 izbové byty o výmere 30-85 metrov štvorcových</div></h3>
+						<h3><div style="text-align: center;">Vlastné vnútorné parkovanie v átriu domu</div></h3>
 
 					</div>
 					<div class="right">
@@ -121,40 +121,40 @@ overflow: hidden;
 
 
 
-		    </div>
+			</div>
+		</div>
 	</div>
-</div>
 </div>
 <div class="footer-bg">
-<div class="wrap">
-<div class="footer">
-	<div class="section group">
-		<div class="col_1_of_4 span_1_of_4">
-			<h3>Sledujte nas</h3>
-			<ul class="nav1">
-				<li><a href="#"><img src="images/facebook.png" title="facebook" alt="" />Facebook</a></li>
-			</ul>
-		</div>
+	<div class="wrap">
+		<div class="footer">
+			<div class="section group">
+				<div class="col_1_of_4 span_1_of_4">
+					<h3>Sledujte nas</h3>
+					<ul class="nav1">
+						<li><a href="#"><img src="images/facebook.png" title="facebook" alt="" />Facebook</a></li>
+					</ul>
+				</div>
 
-		<div class="col_1_of_4 span_1_of_4">
-			<h3>Kontakt</h3>
-			<ul class="nav2">
-				<li>Banska Bystrica</li>
-				<li>Slovensko</li>
-				<li>Telefon:0901 111 111</li>
-				<li>Email:<a href="mailto:stk@stk.sk"><span> stk@stk.sk</span></a></li>
-			</ul>
-		</div>
-		<div class="col_1_of_4 span_1_of_4">
-			<a href="#"><img src="images/logo1.png" alt="" /></a>
+				<div class="col_1_of_4 span_1_of_4">
+					<h3>Kontakt</h3>
+					<ul class="nav2">
+						<li>Banska Bystrica</li>
+						<li>Slovensko</li>
+						<li>Telefon:0901 111 111</li>
+						<li>Email:<a href="mailto:stk@stk.sk"><span> stk@stk.sk</span></a></li>
+					</ul>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<a href="#"><img src="images/logo1.png" alt="" /></a>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
-</div>
-</div>
 <div class="footer1-bg">
-<div class="wrap">
-</div>
+	<div class="wrap">
+	</div>
 </div>
 </body>
 </html>
