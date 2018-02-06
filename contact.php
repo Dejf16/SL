@@ -1,6 +1,29 @@
-<?php 
+
+<?php
+
+
+require 'PHPMailer/PHPMailerAutoload.php';
+$mail = new PHPMailer();
+$mail->isSMTP();
+$mail->SMTPDebug = 2;
+$mail->Host = gethostbyname('smtp.gmail.com');
+$mail->SMTPAuth = false;
+$mail->SMTPSecure = false;
+$mail->Port=587;
+$mail->isHTML(true);
+$mail->Username='noreplydonivo@gmail.com';
+$mail->Password='DoniVoStk223';
+
+$mail->SetFrom('noreplydonivo@gmail.com','developer');
+$mail->addAddress('xdonov00@fit.vutbr.cz');
+$mail->addReplyTo('xdonov00@fit.vutbr.cz','info');
+
+$mail->Subject='jebat';
+$mail->Body='tiez jebat';
+//mail('xdonov00@stud.fit.vutbr.cz','dobre','tralalla');
 $feedback = '';
-if(isset($_POST['submit'])){
+
+
     $company_mail = "xdonov00@stud.fit.vutbr.cz";
     $name_tmp = $_POST['name'];
     $email_tmp = $_POST['email'];
@@ -13,6 +36,14 @@ EMAIL;
     $headers = "Reply-to:$email_tmp";
     mail($company_mail,$subject_tmp,$message_tmp,$headers);
     $feedback = 'Email odoslany';
+if(isset($_POST['submit'])){
+
+    if($mail->send()){
+        echo 'jupiiiiiiii';
+    }else{
+        echo 'piciiiiiii';
+    }
+
 
 }
 ?>
