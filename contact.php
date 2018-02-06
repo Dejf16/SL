@@ -1,6 +1,6 @@
 
 <?php
-
+/*
 
 require 'PHPMailer/PHPMailerAutoload.php';
 $mail = new PHPMailer();
@@ -39,13 +39,14 @@ EMAIL;
 if(isset($_POST['submit'])){
 
     if($mail->send()){
-        echo 'jupiiiiiiii';
+
     }else{
-        echo 'piciiiiiii';
+
     }
 
 
 }
+*/
 ?>
 <!DOCTYPE HTML>
 <html>
