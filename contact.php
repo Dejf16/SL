@@ -5,21 +5,18 @@
 require 'PHPMailer/PHPMailerAutoload.php';
 $mail = new PHPMailer();
 $mail->isSMTP();
-$mail->SMTPDebug = 2;
-$mail->Host = gethostbyname('smtp.gmail.com');
-$mail->SMTPAuth = false;
-$mail->SMTPSecure = false;
-$mail->Port=587;
-$mail->isHTML(true);
-$mail->Username='noreplydonivo@gmail.com';
+$mail->SMTPDebug = false;
+$mail->Host = 'mail.donivostk.eu';
+$mail->SMTPAuth = true;
+$mail->Port=25;
+$mail->Username='postmaster@donivostk.eu';
 $mail->Password='DoniVoStk223';
 
 $mail->SetFrom('noreplydonivo@gmail.com','developer');
 $mail->addAddress('xdonov00@fit.vutbr.cz');
 $mail->addReplyTo('xdonov00@fit.vutbr.cz','info');
 
-$mail->Subject='jebat';
-$mail->Body='tiez jebat';
+
 //mail('xdonov00@stud.fit.vutbr.cz','dobre','tralalla');
 $feedback = '';
 
@@ -28,20 +25,24 @@ $feedback = '';
     $name_tmp = $_POST['name'];
     $email_tmp = $_POST['email'];
     $subject_tmp = $_POST['subject'];
-    $message_tmp = $_POST['message'];
+    $msg_tmp = $_POST['message'];
     $message_tmp = <<<EMAIL
 Meno: $name_tmp
 E-mail: $email_tmp
+Sprava: 
+$msg_tmp
 EMAIL;
-    $headers = "Reply-to:$email_tmp";
-    mail($company_mail,$subject_tmp,$message_tmp,$headers);
-    $feedback = 'Email odoslany';
+
+$mail->Subject=$subject_tmp;
+$mail->Body=$message_tmp;
+
+    $feedback = '';
 if(isset($_POST['submit'])){
 
     if($mail->send()){
-        echo 'jupiiiiiiii';
+        $feedback = 'Email úspešne odoslaný.';
     }else{
-        echo 'piciiiiiii';
+        $feedback = 'Email nebol odoslaný.';
     }
 
 
