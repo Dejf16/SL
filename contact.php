@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
                     <option value="index.html">Úvod</option>
                     <option value="byty_uvod.html">Byty</option>
                     <option value="about.html">O nas</option>
-                    <option selected value="contact.php">Kontakt</option>
+                    <option selected value="contact.html">Kontakt</option>
                 </select>
             </div>
             <div class="menu">
@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
                     <li ><a href="index.html">Úvod</a></li>
                     <li><a href="byty_uvod.html">Byty</a></li>
                     <li><a href="about.html">O nás</a></li>
-                    <li class="active"><a href="contact.php">Kontakt</a></li>
+                    <li class="active"><a href="contact.html">Kontakt</a></li>
                 </ul>
             </div>
             <div class="clear"></div>
