@@ -1,11 +1,27 @@
-	<!DOCTYPE HTML>
+<style>
+	form button {
+		border: 1px solid rgba(0,0,0,0.2);
+		padding: 8px 35px;
+		font-size: 12px;
+		background: #888;
+		color: white;
+	}
+</style>
+
+<!DOCTYPE HTML>
 	<html>
 	<head>
-		<title>The Free Land-Agent Website Template | Contact :: w3layouts</title>
+		<title>Slovenska lupca</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 		<link href='//fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+		<script type="text/javascript">
+            (function(){
+                emailjs.init("user_7mN4vTO1XF4XE0Uih9IsZ");
+            })();
+		</script>
 	</head>
 	<body>
 	<div class="header-bg">
@@ -61,27 +77,27 @@
 						<div class="contact-form">
 							<h3>Kontaktujte nás</h3>
 							<p id="feedback"></p>
-							<form action="?" method="post">
-								<div>
-									<span><label>MENO</label></span>
-									<span><input type="text" name="name" id="name"></span>
-								</div>
-								<div>
-									<span><label>E-MAIL</label></span>
-									<span><input type="text" name="email" id="email"></span>
-								</div>
-								<div>
-									<span><label>PREDMET</label></span>
-									<span><input type="text" name="subject" id="subject"></span>
-								</div>
-								<div>
-									<span><label>SPRÁVA</label></span>
-									<span><textarea name="message" id="message"> </textarea></span>
-								</div>
-								<div>
-									<span><input class="button" type="submit" name="submit" value="Odoslať"></span>
-								</div>
+							<form id="myform" method="post">
+								<label>Váš Email</label>
+								<input type="text" name="reply_to" value="a@b.com" /><br>
+								<label>Vaše Meno</label>
+								<input type="text" name="from_name" value="Ivan" /><br>
+								<label>Správa</label>
+								<textarea type="text" name="message_html" value="Ahoj Ivana"></textarea>
+								<br><br>
+								<button>
+									Odoslať
+								</button>
 							</form>
+
+							<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+							<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+							<script type="text/javascript">
+                                (function(){
+                                    emailjs.init("user_7mN4vTO1XF4XE0Uih9IsZ");
+                                })();
+							</script>
 						</div>
 					</div>
 				</div>
@@ -101,12 +117,13 @@
 					</div>
 
 					<div class="col_1_of_4 span_1_of_4">
-						<h3>Kontakt</h3>
+						<h3><a href="contact.html">Kontakt</a></h3>
 						<ul class="nav2">
-							<li>Banska Bystrica</li>
+							<li>Sládkovičova 27/A</li>
+							<li>Banská Bystrica</li>
 							<li>Slovensko</li>
-							<li>Telefon:0901 111 111</li>
-							<li>Email:<a href="mailto:stk@stk.sk"><span> stk@stk.sk</span></a></li>
+							<li>Telefón: 0907 558 596</li>
+							<li>Email: <a href="mailto:slupca@donivostk.sk"><span>slupca@donivostk.sk</span></a></li>
 						</ul>
 					</div>
 					<div class="col_1_of_4 span_1_of_4">
@@ -121,4 +138,27 @@
 		</div>
 	</div>
 	</body>
+
 	</html>
+
+<script language="javascript">
+    var myform = $("form#myform");
+    myform.submit(function(event){
+        event.preventDefault();
+
+        // Change to your service ID, or keep using the default service
+        var service_id = "default_service";
+        var template_id = "template_F0OvU3RG";
+
+        myform.find("button").text("Odosielam...");
+        emailjs.sendForm(service_id,template_id,"myform")
+            .then(function(){
+                alert("Odoslané! Ďakujeme");
+                myform.find("button").text("Odoslať");
+            }, function(err) {
+                alert("Chyba pri odosielaní!\r\n Err správa:\n " + JSON.stringify(err));
+                myform.find("button").text("Odoslať");
+            });
+        return false;
+    });
+</script>
